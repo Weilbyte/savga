@@ -1,0 +1,10 @@
+[package]
+name = "savga"
+version = "0.1.0"
+authors = ["Weilbyte <git@weilbyte.dev>"]
+description = "Simple and lightweight media host, written in Rust."
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
