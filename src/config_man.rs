@@ -1,8 +1,7 @@
 extern crate yaml_rust;
 extern crate serde_yaml;
 
-
-#[path = "model.rs"] mod model;
+use crate::model;
 
 use std::env;
 use std::path::Path;
@@ -31,4 +30,11 @@ pub fn get_config() -> model::config::Config {
     let config_object : model::config::Config = serde_yaml::from_str(&config_string).expect("Could not load YAML file from string");
 
     config_object
+}
+
+pub fn ensure_data_dir(path: &String) {
+    match fs::create_dir_all(path) {
+        Ok(_) => (),
+        Err(e) => { eprintln!("Error while creating data directory: {}", e); exit(1); }
+    }
 }
